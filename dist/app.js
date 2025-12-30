@@ -8,7 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const visitor_routes_1 = __importDefault(require("./routes/visitor.routes"));
 const contact_routes_1 = __importDefault(require("./routes/contact.routes"));
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)({ origin: "http://localhost:5000" })); // Vite frontend
+app.use((0, cors_1.default)({ origin: "https://pixel-protfolio-frontend-x8sd.vercel.app/" })); // Vite frontend
 app.use(express_1.default.json());
 app.use("/api/visitors", visitor_routes_1.default);
 app.use("/api/contact", contact_routes_1.default);
