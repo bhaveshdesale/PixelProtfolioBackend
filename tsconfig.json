@@ -10,5 +10,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "api", "api/index.ts"]
+  "include": ["src", "api", "src/index.ts"]
 }
