@@ -36,7 +36,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://pixel-protfolio-frontend-x8sd.vercel.app"
+    "https://pixel-protfolio-frontend-eight.vercel.app"
   ],
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
