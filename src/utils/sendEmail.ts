@@ -26,28 +26,18 @@
 //     `,
 //   });
 // };
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendContactEmail = async (
   name: string,
   email: string,
   message: string
 ) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,            // IMPORTANT
-    secure: true,         // MUST be true for 465
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  await transporter.verify(); // 🔥 helps catch auth issues early
-
-  await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
+  await resend.emails.send({
+    from: "Portfolio <onboarding@resend.dev>", // safe default
+    to: [process.env.CONTACT_RECEIVER_EMAIL!],
     subject: "📩 New Portfolio Contact Message",
     html: `
       <h3>New Message from Portfolio</h3>
