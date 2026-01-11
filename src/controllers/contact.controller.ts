@@ -25,11 +25,22 @@ export const submitContactForm = async (req: Request, res: Response) => {
       message: "Message sent successfully",
       data: newMessage,
     });
-  } catch (error) {
-    console.error("Contact error:", error);
+  // } catch (error) {
+  //   console.error("Contact error:", error);
+  //   res.status(500).json({
+  //     success: false,
+  //     message: "Failed to send message",
+  //   });
+  // }
+   } catch (error: any) {
+    console.error("Contact error FULL:", error);
+  
     res.status(500).json({
       success: false,
-      message: "Failed to send message",
+      message: error?.message || "Failed to send message",
+      code: error?.code,
+      response: error?.response,
     });
   }
+  
 };
